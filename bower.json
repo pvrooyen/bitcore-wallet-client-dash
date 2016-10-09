@@ -1,17 +1,17 @@
 {
-  "name": "bitcore-wallet-client",
+  "name": "bitcore-wallet-client-dash",
   "main": "index.js",
   "version": "2.1.1",
-  "homepage": "https://github.com/bitpay/bitcore-wallet-client",
+  "homepage": "https://github.com/dashpay/bitcore-wallet-client-dash",
   "authors": ["BitPay Inc"],
-  "description": "Client for bitcore-wallet-service",
+  "description": "Client for bitcore-wallet-service-dash",
   "keywords": [
-    "bitcoin",
+    "dash",
     "copay",
     "multisig",
     "wallet",
     "client",
-    "bitcore"
+    "bitcore-dash"
   ],
   "ignore": [
     "**/.*",

@@ -1,34 +1,34 @@
-# bitcore-wallet-client
+# Bitcore-Dash Wallet Client
 
-[![NPM Package](https://img.shields.io/npm/v/bitcore-wallet-client.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-wallet-client)
-[![Build Status](https://img.shields.io/travis/bitpay/bitcore-wallet-client.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-wallet-client) 
-[![Coverage Status](https://coveralls.io/repos/bitpay/bitcore-wallet-client/badge.svg)](https://coveralls.io/r/bitpay/bitcore-wallet-client)
+[![NPM Package](https://img.shields.io/npm/v/bitcore-wallet-client-dash.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-wallet-client-dash)
+[![Build Status](https://img.shields.io/travis/dashpay/bitcore-wallet-client-dash.svg?branch=master&style=flat-square)](https://travis-ci.org/dashpay/bitcore-wallet-client-dash)
+[![Coverage Status](https://coveralls.io/repos/dashpay/bitcore-wallet-client-dash/badge.svg)](https://coveralls.io/r/dashpay/bitcore-wallet-client-dash)
 
-The *official* client library for [bitcore-wallet-service] (https://github.com/bitpay/bitcore-wallet-service). 
+The *official* client library for [bitcore-wallet-service] (https://github.com/dashpay/bitcore-wallet-service).
 
 ## Description
 
-This package communicates with BWS [Bitcore wallet service](https://github.com/bitpay/bitcore-wallet-service) using the REST API. All REST endpoints are wrapped as simple async methods. All relevant responses from BWS are checked independently by the peers, thus the importance of using this library when talking to a third party BWS instance.
+This package communicates with BWS [Bitcore wallet service](https://github.com/dashpay/bitcore-wallet-service) using the REST API. All REST endpoints are wrapped as simple async methods. All relevant responses from BWS are checked independently by the peers, thus the importance of using this library when talking to a third party BWS instance.
 
-See [Bitcore-wallet] (https://github.com/bitpay/bitcore-wallet) for a simple CLI wallet implementation that relays on BWS and uses bitcore-wallet-client.
+See [Bitcore-wallet] (https://github.com/dashpay/bitcore-wallet) for a simple CLI wallet implementation that relays on BWS and uses bitcore-wallet-client-dash.
 
 ## Get Started
 
-You can start using bitcore-wallet-client in any of these two ways:
+You can start using bitcore-wallet-client-dash in any of these two ways:
 
-* via [Bower](http://bower.io/): by running `bower install bitcore-wallet-client` from your console
-* or via [NPM](https://www.npmjs.com/package/bitcore-wallet-client): by running `npm install bitcore-wallet-client` from your console.
+* via [Bower](http://bower.io/): by running `bower install bitcore-wallet-client-dash` from your console
+* or via [NPM](https://www.npmjs.com/package/bitcore-wallet-client-dash): by running `npm install bitcore-wallet-client-dash` from your console.
 
 ## Example
 
-Start your own local [Bitcore wallet service](https://github.com/bitpay/bitcore-wallet-service) instance. In this example we assume you have `bitcore-wallet-service` running on your `localhost:3232`.
+Start your own local [Bitcore wallet service](https://github.com/dashpay/bitcore-wallet-service) instance. In this example we assume you have `bitcore-wallet-service` running on your `localhost:3232`.
 
 Then create two files `irene.js` and `tomas.js` with the content below:
 
 **irene.js**
 
 ``` javascript
-var Client = require('bitcore-wallet-client');
+var Client = require('bitcore-wallet-client-dash');
 
 
 var fs = require('fs');
@@ -54,7 +54,7 @@ client.createWallet("My Wallet", "Irene", 2, 2, {network: 'testnet'}, function(e
 
 ``` javascript
 
-var Client = require('bitcore-wallet-client');
+var Client = require('bitcore-wallet-client-dash');
 
 
 var fs = require('fs');
@@ -104,10 +104,10 @@ client.joinWallet(secret, "Tomas", {}, function(err, wallet) {
 });
 ```
 
-Install `bitcore-wallet-client` before start:
+Install `bitcore-wallet-client-dash` before start:
 
 ```
-npm i bitcore-wallet-client
+npm i bitcore-wallet-client-dash
 ```
 
 Create a new wallet with the first script:
@@ -785,7 +785,7 @@ Returns exchange rate for the specified currency & timestamp.
 
 **opts.ts**: `Date`, A timestamp to base the rate on (default Date.now()).
 
-**opts.provider**: `String`, A provider of exchange rates (default 'BitPay').
+**opts.provider**: `String`, A provider of exchange rates (default 'dashpay').
 
 **Returns**: `Object`, rates - The exchange rate.
 
@@ -1098,7 +1098,7 @@ Check transaction proposal
 
 The MIT License
 
-Copyright (c) 2015 BitPay
+Copyright (c) 2015 dashpay
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

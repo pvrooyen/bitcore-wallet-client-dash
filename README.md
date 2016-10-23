@@ -1,38 +1,38 @@
-# bitcore-wallet-client
+# Bitcore-Dash Wallet Client
 
-[![NPM Package](https://img.shields.io/npm/v/bitcore-wallet-client.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-wallet-client)
-[![Build Status](https://img.shields.io/travis/bitpay/bitcore-wallet-client.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-wallet-client) 
-[![Coverage Status](https://coveralls.io/repos/bitpay/bitcore-wallet-client/badge.svg)](https://coveralls.io/r/bitpay/bitcore-wallet-client)
+[![NPM Package](https://img.shields.io/npm/v/bitcore-wallet-client-dash.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-wallet-client-dash)
+[![Build Status](https://img.shields.io/travis/dashpay/bitcore-wallet-client-dash.svg?branch=master&style=flat-square)](https://travis-ci.org/dashpay/bitcore-wallet-client-dash)
+[![Coverage Status](https://coveralls.io/repos/dashpay/bitcore-wallet-client-dash/badge.svg)](https://coveralls.io/r/dashpay/bitcore-wallet-client-dash)
 
-The *official* client library for [bitcore-wallet-service] (https://github.com/bitpay/bitcore-wallet-service). 
+The *official* client library for [bitcore-wallet-service-dash] (https://github.com/dashpay/bitcore-wallet-service-dash).
 
 ## Description
 
-This package communicates with BWS [Bitcore wallet service](https://github.com/bitpay/bitcore-wallet-service) using the REST API. All REST endpoints are wrapped as simple async methods. All relevant responses from BWS are checked independently by the peers, thus the importance of using this library when talking to a third party BWS instance.
+This package communicates with BWS [bitcore-dash wallet service](https://github.com/dashpay/bitcore-wallet-service-dash) using the REST API. All REST endpoints are wrapped as simple async methods. All relevant responses from BWS are checked independently by the peers, thus the importance of using this library when talking to a third party BWS instance.
 
-See [Bitcore-wallet] (https://github.com/bitpay/bitcore-wallet) for a simple CLI wallet implementation that relays on BWS and uses bitcore-wallet-client.
+See [bitcore-wallet-dash] (https://github.com/dashpay/bitcore-wallet-dash) for a simple CLI wallet implementation that relays on BWS and uses bitcore-wallet-client-dash.
 
 ## Get Started
 
-You can start using bitcore-wallet-client in any of these two ways:
+You can start using bitcore-wallet-client-dash in any of these two ways:
 
-* via [Bower](http://bower.io/): by running `bower install bitcore-wallet-client` from your console
-* or via [NPM](https://www.npmjs.com/package/bitcore-wallet-client): by running `npm install bitcore-wallet-client` from your console.
+* via [Bower](http://bower.io/): by running `bower install bitcore-wallet-client-dash` from your console
+* or via [NPM](https://www.npmjs.com/package/bitcore-wallet-client-dash): by running `npm install bitcore-wallet-client-dash` from your console.
 
 ## Example
 
-Start your own local [Bitcore wallet service](https://github.com/bitpay/bitcore-wallet-service) instance. In this example we assume you have `bitcore-wallet-service` running on your `localhost:3232`.
+Start your own local [bitcore-dash wallet service](https://github.com/dashpay/bitcore-wallet-service-dash) instance. In this example we assume you have `bitcore-wallet-service-dash` running on your `localhost:3232`.
 
 Then create two files `irene.js` and `tomas.js` with the content below:
 
 **irene.js**
 
 ``` javascript
-var Client = require('bitcore-wallet-client');
+var Client = require('bitcore-wallet-client-dash');
 
 
 var fs = require('fs');
-var BWS_INSTANCE_URL = 'https://bws.bitpay.com/bws/api'
+var BWS_INSTANCE_URL = 'https://bws.dev.dash.org/bws/api'
 
 var client = new Client({
   baseUrl: BWS_INSTANCE_URL,
@@ -41,7 +41,7 @@ var client = new Client({
 
 client.createWallet("My Wallet", "Irene", 2, 2, {network: 'testnet'}, function(err, secret) {
   if (err) {
-    console.log('error: ',err); 
+    console.log('error: ',err);
     return
   };
   // Handle err
@@ -54,11 +54,11 @@ client.createWallet("My Wallet", "Irene", 2, 2, {network: 'testnet'}, function(e
 
 ``` javascript
 
-var Client = require('bitcore-wallet-client');
+var Client = require('bitcore-wallet-client-dash');
 
 
 var fs = require('fs');
-var BWS_INSTANCE_URL = 'https://bws.bitpay.com/bws/api'
+var BWS_INSTANCE_URL = 'https://bws.dev.dash.org/bws/api'
 
 var secret = process.argv[2];
 if (!secret) {
@@ -104,17 +104,17 @@ client.joinWallet(secret, "Tomas", {}, function(err, wallet) {
 });
 ```
 
-Install `bitcore-wallet-client` before start:
+Install `bitcore-wallet-client-dash` before start:
 
 ```
-npm i bitcore-wallet-client
+npm i bitcore-wallet-client-dash
 ```
 
 Create a new wallet with the first script:
 
 ```
 $ node irene.js
-info Generating new keys 
+info Generating new keys
  Wallet Created. Share this secret with your copayers: JbTDjtUkvWS4c3mgAtJf4zKyRGzdQzZacfx2S7gRqPLcbeAWaSDEnazFJF6mKbzBvY1ZRwZCbvT
 ```
 
@@ -146,7 +146,7 @@ Note that the scripts created two files named `irene.dat` and `tomas.dat`. With 
 ## Class: API
 ClientAPI constructor.
 
-### API.setNotificationsInterval(notificationIntervalSeconds) 
+### API.setNotificationsInterval(notificationIntervalSeconds)
 
 Reset notification polling with new interval
 
@@ -155,7 +155,7 @@ Reset notification polling with new interval
 **notificationIntervalSeconds**: `Numeric`, use 0 to pause notifications
 
 
-### API.seedFromRandom(opts, opts.network) 
+### API.seedFromRandom(opts, opts.network)
 
 Seed from random
 
@@ -166,7 +166,7 @@ Seed from random
 **opts.network**: `String`, default 'livenet'
 
 
-### API.seedFromRandomWithMnemonic(opts, opts.network, opts.passphrase, opts.language, opts.account) 
+### API.seedFromRandomWithMnemonic(opts, opts.network, opts.passphrase, opts.language, opts.account)
 
 Seed from random with mnemonic
 
@@ -183,7 +183,7 @@ Seed from random with mnemonic
 **opts.account**: `Number`, default 0
 
 
-### API.seedFromExtendedPrivateKey(xPrivKey, opts.account, opts.derivationStrategy) 
+### API.seedFromExtendedPrivateKey(xPrivKey, opts.account, opts.derivationStrategy)
 
 Seed from extended private key
 
@@ -196,7 +196,7 @@ Seed from extended private key
 **opts.derivationStrategy**: `String`, default 'BIP44'
 
 
-### API.seedFromMnemonic(BIP39, opts, opts.network, opts.passphrase, opts.account, opts.derivationStrategy) 
+### API.seedFromMnemonic(BIP39, opts, opts.network, opts.passphrase, opts.account, opts.derivationStrategy)
 
 Seed from Mnemonics (language autodetected)
 Can throw an error if mnemonic is invalid
@@ -218,7 +218,7 @@ Can throw an error if mnemonic is invalid
 **opts.derivationStrategy**: `String`, default 'BIP44'
 
 
-### API.seedFromExtendedPublicKey(xPubKey, source, entropySourceHex, opts, opts.account, opts.derivationStrategy) 
+### API.seedFromExtendedPublicKey(xPubKey, source, entropySourceHex, opts, opts.account, opts.derivationStrategy)
 
 Seed from external wallet public key
 
@@ -237,7 +237,7 @@ Seed from external wallet public key
 **opts.derivationStrategy**: `String`, default 'BIP44'
 
 
-### API.export(opts, opts.noSign) 
+### API.export(opts, opts.noSign)
 
 Export wallet
 
@@ -248,7 +248,7 @@ Export wallet
 **opts.noSign**: `Boolean`, Export wallet
 
 
-### API.import(str, opts, opts.password, opts.skipKeyValidation) 
+### API.import(str, opts, opts.password, opts.skipKeyValidation)
 
 Import wallet
 emits 'derivation-error' in case keys are not validated correctly.
@@ -267,7 +267,7 @@ will be needed for derive credentials fields.
 **opts.skipKeyValidation**: `Boolean`, Skip extended key validation
 
 
-### API.importFromMnemonic(BIP39, opts, opts.network, opts.passphrase, opts.account, opts.derivationStrategy) 
+### API.importFromMnemonic(BIP39, opts, opts.network, opts.passphrase, opts.account, opts.derivationStrategy)
 
 Import from Mnemonics (language autodetected)
 Can throw an error if mnemonic is invalid
@@ -289,7 +289,7 @@ Can throw an error if mnemonic is invalid
 **opts.derivationStrategy**: `String`, default 'BIP44'
 
 
-### API.importFromExtendedPublicKey(xPubKey, source, entropySourceHex, opts, opts.account, opts.derivationStrategy) 
+### API.importFromExtendedPublicKey(xPubKey, source, entropySourceHex, opts, opts.account, opts.derivationStrategy)
 
 Import from Extended Public Key
 
@@ -308,7 +308,7 @@ Import from Extended Public Key
 **opts.derivationStrategy**: `String`, default 'BIP44'
 
 
-### API.openWallet(cb) 
+### API.openWallet(cb)
 
 Open a wallet and try to complete the public key ring.
 
@@ -319,36 +319,36 @@ Open a wallet and try to complete the public key ring.
 **Fires**: API#event:walletCompleted
 
 
-### API.isComplete() 
+### API.isComplete()
 
 Return if wallet is complete
 
 
-### API.isPrivKeyEncrypted() 
+### API.isPrivKeyEncrypted()
 
 Is private key currently encrypted? (ie, locked)
 
 **Returns**: `Boolean`
 
-### API.hasPrivKeyEncrypted() 
+### API.hasPrivKeyEncrypted()
 
 Is private key encryption setup?
 
 **Returns**: `Boolean`
 
-### API.isPrivKeyExternal() 
+### API.isPrivKeyExternal()
 
 Is private key external?
 
 **Returns**: `Boolean`
 
-### API.getPrivKeyExternalSourceName() 
+### API.getPrivKeyExternalSourceName()
 
 Get external wallet source name
 
 **Returns**: `String`
 
-### API.unlock(password) 
+### API.unlock(password)
 
 unlocks the private key. `lock` need to be called explicity
 later to remove the unencrypted private key.
@@ -359,14 +359,14 @@ later to remove the unencrypted private key.
 later to remove the unencrypted private key.
 
 
-### API.canSign() 
+### API.canSign()
 
 Can this credentials sign a transaction?
 (Only returns fail on a 'proxy' setup for airgapped operation)
 
 **Returns**: `undefined`
 
-### API.setPrivateKeyEncryption(password, opts) 
+### API.setPrivateKeyEncryption(password, opts)
 
 sets up encryption for the extended private key
 
@@ -378,19 +378,19 @@ sets up encryption for the extended private key
 
 **Returns**: `undefined`
 
-### API.disablePrivateKeyEncryption() 
+### API.disablePrivateKeyEncryption()
 
 disables encryption for private key.
 wallet must be unlocked
 
 
-### API.lock() 
+### API.lock()
 
 Locks private key (removes the unencrypted version and keep only the encrypted)
 
 **Returns**: `undefined`
 
-### API.getFeeLevels(network, cb) 
+### API.getFeeLevels(network, cb)
 
 Get current fee levels for the specified network
 
@@ -402,7 +402,7 @@ Get current fee levels for the specified network
 
 **Returns**: `Callback`, cb - Returns error or an object with status information
 
-### API.getVersion(cb) 
+### API.getVersion(cb)
 
 Get service version
 
@@ -411,7 +411,7 @@ Get service version
 **cb**: `Callback`, Get service version
 
 
-### API.createWallet(walletName, copayerName, m, n, opts, opts.network, opts.walletPrivKey, opts.id, opts.withMnemonics, cb) 
+### API.createWallet(walletName, copayerName, m, n, opts, opts.network, opts.walletPrivKey, opts.id, opts.withMnemonics, cb)
 
 Create a wallet.
 
@@ -439,7 +439,7 @@ Create a wallet.
 
 **Returns**: `undefined`
 
-### API.joinWallet(secret, copayerName, opts, opts.dryRun[, cb) 
+### API.joinWallet(secret, copayerName, opts, opts.dryRun[, cb)
 
 Join an existent wallet
 
@@ -457,13 +457,13 @@ Join an existent wallet
 
 **Returns**: `Callback`, cb - Returns the wallet
 
-### API.recreateWallet() 
+### API.recreateWallet()
 
 Recreates a wallet, given credentials (with wallet id)
 
 **Returns**: `Callback`, cb - Returns the wallet
 
-### API.getNotifications(opts, lastNotificationId, timeSpan) 
+### API.getNotifications(opts, lastNotificationId, timeSpan)
 
 Get latest notifications
 
@@ -477,7 +477,7 @@ Get latest notifications
 
 **Returns**: `Callback`, cb - Returns error or an array of notifications
 
-### API.getStatus(opts.twoStep[, opts.includeExtendedInfo) 
+### API.getStatus(opts.twoStep[, opts.includeExtendedInfo)
 
 Get status of the wallet
 
@@ -489,7 +489,7 @@ Get status of the wallet
 
 **Returns**: `Callback`, cb - Returns error or an object with status information
 
-### API.getPreferences(cb) 
+### API.getPreferences(cb)
 
 Get copayer preferences
 
@@ -499,7 +499,7 @@ Get copayer preferences
 
 **Returns**: `Callback`, cb - Return error or object
 
-### API.savePreferences(preferences, cb) 
+### API.savePreferences(preferences, cb)
 
 Save copayer preferences
 
@@ -511,7 +511,7 @@ Save copayer preferences
 
 **Returns**: `Callback`, cb - Return error or object
 
-### API.fetchPayPro(opts.payProUrl) 
+### API.fetchPayPro(opts.payProUrl)
 
 fetchPayPro
 
@@ -525,7 +525,7 @@ Returns (err,paypro)
  paypro.toAddress
  paypro.memo
 
-### API.getUtxos(cb, opts, opts.addresses) 
+### API.getUtxos(cb, opts, opts.addresses)
 
 Gets list of utxos
 
@@ -539,38 +539,7 @@ Gets list of utxos
 
 **Returns**: `Callback`, cb - Return error or the list of utxos
 
-### API.sendTxProposal(opts, opts.toAddress, opts.amount, opts.message, opts.feePerKb, opts.payProUrl, opts.excludeUnconfirmedUtxos, opts.customData, opts.inputs, opts.outputs, opts.utxosToExclude) 
-
-Send a transaction proposal
-
-**Parameters**
-
-**opts**: `Object`, Send a transaction proposal
-
-**opts.toAddress**: `String`, | opts.outputs[].toAddress
-
-**opts.amount**: `Number`, | opts.outputs[].amount
-
-**opts.message**: `String`, | opts.outputs[].message
-
-**opts.feePerKb**: `string`, Optional: Use an alternative fee per KB for this TX
-
-**opts.payProUrl**: `String`, Optional: Tx is from a payment protocol URL
-
-**opts.excludeUnconfirmedUtxos**: `string`, Optional: Do not use UTXOs of unconfirmed transactions as inputs
-
-**opts.customData**: `Object`, Optional: Arbitrary data to store along with proposal
-
-**opts.inputs**: `Array`, Optional: Inputs to be used in proposal.
-
-**opts.outputs**: `Array`, Optional: Outputs to be used in proposal.
-
-**opts.utxosToExclude**: `Array`, Optional: List of UTXOS (in form of txid:vout string)
-       to exclude from coin selection for this proposal
-
-**Returns**: `Callback`, cb - Return error or the transaction proposal
-
-### API.createTxProposal(opts, opts.outputs, opts.outputs[].toAddress, opts.outputs[].amount, opts.outputs[].message, opts.message, opts.fee, opts.feePerKb, opts.changeAddress, opts.payProUrl, opts.excludeUnconfirmedUtxos, opts.customData, opts.inputs, opts.outputs, opts.utxosToExclude) 
+### API.createTxProposal(opts, opts.outputs, opts.outputs[].toAddress, opts.outputs[].amount, opts.outputs[].message, opts.message, opts.fee, opts.feePerKb, opts.changeAddress, opts.payProUrl, opts.excludeUnconfirmedUtxos, opts.customData, opts.inputs, opts.outputs, opts.utxosToExclude)
 
 Create a transaction proposal
 
@@ -609,7 +578,7 @@ Create a transaction proposal
 
 **Returns**: `Callback`, cb - Return error or the transaction proposal
 
-### API.publishTxProposal(opts, opts.txp) 
+### API.publishTxProposal(opts, opts.txp)
 
 Publish a transaction proposal
 
@@ -621,7 +590,7 @@ Publish a transaction proposal
 
 **Returns**: `Callback`, cb - Return error or null
 
-### API.createAddress(opts, opts.ignoreMaxGap[, cb) 
+### API.createAddress(opts, opts.ignoreMaxGap[, cb)
 
 Create a new address
 
@@ -635,7 +604,7 @@ Create a new address
 
 **Returns**: `Callback`, cb - Return error or the address
 
-### API.getMainAddresses(opts, opts.doNotVerify, opts.limit, opts.reverse, cb) 
+### API.getMainAddresses(opts, opts.doNotVerify, opts.limit, opts.reverse, cb)
 
 Get your main addresses
 
@@ -653,7 +622,7 @@ Get your main addresses
 
 **Returns**: `Callback`, cb - Return error or the array of addresses
 
-### API.getBalance(opts.twoStep[, cb) 
+### API.getBalance(opts.twoStep[, cb)
 
 Update wallet balance
 
@@ -664,7 +633,7 @@ Update wallet balance
 **cb**: `Callback`, Update wallet balance
 
 
-### API.getTxProposals(opts, opts.doNotVerify, opts.forAirGapped) 
+### API.getTxProposals(opts, opts.doNotVerify, opts.forAirGapped)
 
 Get list of transactions proposals
 
@@ -678,7 +647,7 @@ Get list of transactions proposals
 
 **Returns**: `Callback`, cb - Return error or array of transactions proposals
 
-### API.signTxProposal(txp, cb) 
+### API.signTxProposal(txp, cb)
 
 Sign a transaction proposal
 
@@ -690,7 +659,7 @@ Sign a transaction proposal
 
 **Returns**: `Callback`, cb - Return error or object
 
-### API.signTxProposalFromAirGapped(txp, encryptedPkr, m, n) 
+### API.signTxProposalFromAirGapped(txp, encryptedPkr, m, n)
 
 Sign transaction proposal from AirGapped
 
@@ -706,7 +675,7 @@ Sign transaction proposal from AirGapped
 
 **Returns**: `Object`, txp - Return transaction
 
-### API.rejectTxProposal(txp, reason, cb) 
+### API.rejectTxProposal(txp, reason, cb)
 
 Reject a transaction proposal
 
@@ -720,7 +689,7 @@ Reject a transaction proposal
 
 **Returns**: `Callback`, cb - Return error or object
 
-### API.broadcastRawTx(opts, opts.network, opts.rawTx, cb) 
+### API.broadcastRawTx(opts, opts.network, opts.rawTx, cb)
 
 Broadcast raw transaction
 
@@ -736,7 +705,7 @@ Broadcast raw transaction
 
 **Returns**: `Callback`, cb - Return error or txid
 
-### API.broadcastTxProposal(txp, cb) 
+### API.broadcastTxProposal(txp, cb)
 
 Broadcast a transaction proposal
 
@@ -748,7 +717,7 @@ Broadcast a transaction proposal
 
 **Returns**: `Callback`, cb - Return error or object
 
-### API.removeTxProposal(txp, cb) 
+### API.removeTxProposal(txp, cb)
 
 Remove a transaction proposal
 
@@ -760,7 +729,7 @@ Remove a transaction proposal
 
 **Returns**: `Callback`, cb - Return error or empty
 
-### API.getTxHistory(opts, opts.skip, opts.limit, opts.includeExtendedInfo, cb) 
+### API.getTxHistory(opts, opts.skip, opts.limit, opts.includeExtendedInfo, cb)
 
 Get transaction history
 
@@ -778,7 +747,7 @@ Get transaction history
 
 **Returns**: `Callback`, cb - Return error or array of transactions
 
-### API.getTx(TransactionId) 
+### API.getTx(TransactionId)
 
 getTx
 
@@ -788,7 +757,7 @@ getTx
 
 **Returns**: `Callback`, cb - Return error or transaction
 
-### API.startScan(opts, opts.includeCopayerBranches, cb) 
+### API.startScan(opts, opts.includeCopayerBranches, cb)
 
 Start an address scanning process.
 When finished, the scanning process will send a notification 'ScanFinished' to all copayers.
@@ -804,7 +773,7 @@ When finished, the scanning process will send a notification 'ScanFinished' to a
 When finished, the scanning process will send a notification 'ScanFinished' to all copayers.
 
 
-### API.getFiatRate(opts, opts.code, opts.ts, opts.provider) 
+### API.getFiatRate(opts, opts.code, opts.ts, opts.provider)
 
 Returns exchange rate for the specified currency & timestamp.
 
@@ -816,11 +785,11 @@ Returns exchange rate for the specified currency & timestamp.
 
 **opts.ts**: `Date`, A timestamp to base the rate on (default Date.now()).
 
-**opts.provider**: `String`, A provider of exchange rates (default 'BitPay').
+**opts.provider**: `String`, A provider of exchange rates (default 'dashpay').
 
 **Returns**: `Object`, rates - The exchange rate.
 
-### API.pushNotificationsSubscribe(opts, opts.type, opts.token) 
+### API.pushNotificationsSubscribe(opts, opts.type, opts.token)
 
 Returns subscription status.
 
@@ -834,7 +803,7 @@ Returns subscription status.
 
 **Returns**: `Object`, response - Status of subscription.
 
-### API.pushNotificationsUnsubscribe(token) 
+### API.pushNotificationsUnsubscribe(token)
 
 Returns unsubscription status.
 
@@ -844,7 +813,7 @@ Returns unsubscription status.
 
 **Returns**: `Callback`, cb - Return error if exists
 
-### API.getSendMaxInfo(opts, opts.feePerKb, opts.excludeUnconfirmedUtxos, opts.returnInputs) 
+### API.getSendMaxInfo(opts, opts.feePerKb, opts.excludeUnconfirmedUtxos, opts.returnInputs)
 
 Returns send max information.
 
@@ -860,7 +829,7 @@ Returns send max information.
 
 **Returns**: `Callback`, cb - Return error (if exists) and object result
 
-### API.createWalletFromOldCopay(username, password, blob, cb) 
+### API.createWalletFromOldCopay(username, password, blob, cb)
 
 createWalletFromOldCopay
 
@@ -953,7 +922,7 @@ Usage:
   log.debug('Message!', 1); // will show '[debug] copay: Message!, 1'
 </pre>
 
-### Logger.setLevel(level) 
+### Logger.setLevel(level)
 
 Sets the level of a logger. A level can be any bewteen: 'debug', 'info', 'log',
 'warn', 'error', and 'fatal'. That order matters: if a logger's level is set to
@@ -964,7 +933,7 @@ Sets the level of a logger. A level can be any bewteen: 'debug', 'info', 'log',
 **level**: `number`, the name of the logging level
 
 
-### Logger.debug(args) 
+### Logger.debug(args)
 
 Log messages at the debug level.
 
@@ -973,7 +942,7 @@ Log messages at the debug level.
 **args**: `*`, the arguments to be logged.
 
 
-### Logger.info(args) 
+### Logger.info(args)
 
 Log messages at the info level.
 
@@ -982,7 +951,7 @@ Log messages at the info level.
 **args**: `*`, the arguments to be logged.
 
 
-### Logger.log(args) 
+### Logger.log(args)
 
 Log messages at an intermediary level called 'log'.
 
@@ -991,7 +960,7 @@ Log messages at an intermediary level called 'log'.
 **args**: `*`, the arguments to be logged.
 
 
-### Logger.warn(args) 
+### Logger.warn(args)
 
 Log messages at the warn level.
 
@@ -1000,7 +969,7 @@ Log messages at the warn level.
 **args**: `*`, the arguments to be logged.
 
 
-### Logger.error(args) 
+### Logger.error(args)
 
 Log messages at the error level.
 
@@ -1009,7 +978,7 @@ Log messages at the error level.
 **args**: `*`, the arguments to be logged.
 
 
-### Logger.fatal(args) 
+### Logger.fatal(args)
 
 Log messages at the fatal level.
 
@@ -1075,7 +1044,7 @@ Log messages at the fatal level.
 ## Class: Verifier
 Verifier constructor. Checks data given by the server
 
-### Verifier.checkAddress(credentials, address) 
+### Verifier.checkAddress(credentials, address)
 
 Check address
 
@@ -1087,7 +1056,7 @@ Check address
 
 **Returns**: `Boolean`, true or false
 
-### Verifier.checkCopayers(credentials, copayers) 
+### Verifier.checkCopayers(credentials, copayers)
 
 Check copayers
 
@@ -1099,7 +1068,7 @@ Check copayers
 
 **Returns**: `Boolean`, true or false
 
-### Verifier.checkTxProposal(credentials, txp, Optional:, isLegit) 
+### Verifier.checkTxProposal(credentials, txp, Optional:, isLegit)
 
 Check transaction proposal
 
@@ -1129,7 +1098,7 @@ Check transaction proposal
 
 The MIT License
 
-Copyright (c) 2015 BitPay
+Copyright (c) 2015 dashpay
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,7 +2,7 @@
   "name": "bitcore-wallet-client-dash",
   "description": "Client for bitcore-wallet-service-dash",
   "author": "BitPay Inc",
-  "version": "2.11.1",
+  "version": "2.11.2",
   "license": "MIT",
   "keywords": [
     "dash",

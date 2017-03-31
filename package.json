@@ -2,7 +2,7 @@
   "name": "bitcore-wallet-client-dash",
   "description": "Client for bitcore-wallet-service-dash",
   "author": "BitPay Inc",
-  "version": "2.11.2",
+  "version": "5.1.2",
   "license": "MIT",
   "keywords": [
     "dash",
@@ -26,19 +26,18 @@
   "dependencies": {
     "async": "^0.9.0",
     "bip38": "^1.3.0",
-    "bitcore-lib-dash": "^0.13.19",
-    "bitcore-mnemonic-dash": "^1.0.3",
-    "bitcore-payment-protocol-dash": "^1.1.1",
-    "browser-request": "^0.3.3",
+    "bitcore-lib-dash": "^0.14.0",
+    "bitcore-mnemonic-dash": "^1.2.2",
+    "bitcore-payment-protocol-dash": "^1.2.2",
     "json-stable-stringify": "^1.0.0",
     "lodash": "^3.3.1",
     "preconditions": "^1.0.8",
-    "request": "^2.53.0",
-    "sjcl": "^1.0.2"
+    "sjcl": "1.0.3",
+    "superagent": "^3.4.1"
   },
   "devDependencies": {
-    "bitcore-wallet-service-dash": "1.9.1",
-    "browserify": "^9.0.3",
+    "bitcore-wallet-service-dash": "~1.15.0",
+    "browserify": "^13.1.0",
     "chai": "^1.9.1",
     "coveralls": "^2.11.2",
     "grunt": "~0.4.0",
@@ -46,7 +45,7 @@
     "istanbul": "*",
     "mocha": "^1.18.2",
     "sinon": "^1.10.3",
-    "supertest": "*",
+    "supertest": "^3.0.0",
     "tingodb": "^0.3.4",
     "uglify": "^0.1.1",
     "uuid": "^2.0.1"

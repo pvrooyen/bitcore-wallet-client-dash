@@ -924,9 +924,10 @@ Usage:
 
 ### Logger.setLevel(level)
 
-Sets the level of a logger. A level can be any bewteen: 'debug', 'info', 'log',
+Sets the level of a logger. A level can be any bewteen: 'silent', 'debug', 'info', 'log',
 'warn', 'error', and 'fatal'. That order matters: if a logger's level is set to
-'warn', calling <tt>level.debug</tt> won't have any effect.
+'warn', calling <tt>level.debug</tt> won't have any effect. If the level is set to 'silent',
+nothing will ever be logged. 'silent' is the default log level.
 
 **Parameters**
 
@@ -1098,7 +1099,7 @@ Check transaction proposal
 
 The MIT License
 
-Copyright (c) 2015 dashpay
+Copyright (c) 2015 BitPay
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

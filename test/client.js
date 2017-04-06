@@ -1489,7 +1489,7 @@ describe('client API', function() {
     it('Should return only main addresses when change addresses exist', function(done) {
       var opts = {
         amount: 0.1e8,
-        toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+        toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
         message: 'hello 1-1',
       };
       helpers.createAndPublishTxProposal(clients[0], opts, function(err, x) {
@@ -1936,7 +1936,7 @@ describe('client API', function() {
       blockchainExplorerMock.setFeeLevels({
         2: 123e2,
       });
-      var toAddress = 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5';
+      var toAddress = 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms';
       var opts = {
         outputs: [{
           amount: 1e8,
@@ -2008,7 +2008,7 @@ describe('client API', function() {
         1: 456e2,
         6: 123e2,
       });
-      var toAddress = 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5';
+      var toAddress = 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms';
       var opts = {
         txProposalId: '1234',
         outputs: [{
@@ -2065,11 +2065,11 @@ describe('client API', function() {
       var opts = {
         outputs: [{
           amount: 1e8,
-          toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+          toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
           message: 'world'
         }, {
           amount: 2e8,
-          toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+          toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
         }],
         feePerKb: 123e2,
         changeAddress: myAddress,
@@ -2134,7 +2134,7 @@ describe('client API', function() {
       var opts = {
         outputs: [{
           amount: 3e8,
-          toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+          toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
         }],
         feePerKb: 100e2,
       };
@@ -2186,7 +2186,7 @@ describe('client API', function() {
       });
     });
     it('Should sign proposal', function(done) {
-      var toAddress = 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5';
+      var toAddress = 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms';
       var opts = {
         outputs: [{
           amount: 1e8,
@@ -2221,7 +2221,7 @@ describe('client API', function() {
     it('Should create proposal with unconfirmed inputs', function(done) {
       var opts = {
         amount: 4.5e8,
-        toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+        toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
         message: 'hello',
       };
       helpers.createAndPublishTxProposal(clients[0], opts, function(err, x) {
@@ -2242,7 +2242,7 @@ describe('client API', function() {
           blockchainExplorerMock.setUtxo(x0, 1, 2);
           var opts = {
             amount: 3e8,
-            toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+            toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
             message: 'hello 1-1',
           };
           helpers.createAndPublishTxProposal(clients[0], opts, function(err, x) {
@@ -2256,7 +2256,7 @@ describe('client API', function() {
     it('Should fail to create proposal with insufficient funds for fee', function(done) {
       var opts = {
         amount: 5e8 - 200e2,
-        toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+        toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
         message: 'hello 1-1',
         feePerKb: 800e2,
       };
@@ -2277,7 +2277,7 @@ describe('client API', function() {
     it('Should lock and release funds through rejection', function(done) {
       var opts = {
         amount: 2.2e8,
-        toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+        toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
       };
       helpers.createAndPublishTxProposal(clients[0], opts, function(err, x) {
         should.not.exist(err);
@@ -2302,7 +2302,7 @@ describe('client API', function() {
     it('Should lock and release funds through removal', function(done) {
       var opts = {
         amount: 2.2e8,
-        toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+        toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
         message: 'hello 1-1',
       };
       helpers.createAndPublishTxProposal(clients[0], opts, function(err, x) {
@@ -2325,7 +2325,7 @@ describe('client API', function() {
     it('Should keep message and refusal texts', function(done) {
       var opts = {
         amount: 1e8,
-        toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+        toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
         message: 'some message',
       };
       helpers.createAndPublishTxProposal(clients[0], opts, function(err, x) {
@@ -2347,7 +2347,7 @@ describe('client API', function() {
       var opts = {
         outputs: [{
           amount: 1000e2,
-          toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+          toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
         }],
         message: 'some message',
         feePerKb: 100e2,
@@ -2363,7 +2363,7 @@ describe('client API', function() {
     it('Should encrypt proposal refusal comment', function(done) {
       var opts = {
         amount: 1e8,
-        toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+        toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
       };
       helpers.createAndPublishTxProposal(clients[0], opts, function(err, x) {
         should.not.exist(err);
@@ -2384,7 +2384,7 @@ describe('client API', function() {
             blockchainExplorerMock.setUtxo(x0, 10, 1);
             var opts = {
               amount: 1000e2,
-              toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+              toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
               message: 'hello',
             };
             helpers.createAndPublishTxProposal(clients[0], opts, function(err, x) {
@@ -2406,7 +2406,7 @@ describe('client API', function() {
       it('should detect tampered amount', function(done) {
         var opts = {
           amount: 1000e2,
-          toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+          toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
           message: 'hello',
         };
         helpers.createAndPublishTxProposal(clients[0], opts, function(err, x) {
@@ -2426,14 +2426,14 @@ describe('client API', function() {
       it('should detect change address not it wallet', function(done) {
         var opts = {
           amount: 1000e2,
-          toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+          toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
           message: 'hello',
         };
         helpers.createAndPublishTxProposal(clients[0], opts, function(err, x) {
           should.not.exist(err);
 
           helpers.tamperResponse(clients[0], 'get', '/v1/txproposals/', {}, function(txps) {
-            txps[0].changeAddress.address = 'mnA11ZwktRp4sZJbS8MbXmmFPZAgriuwhh';
+            txps[0].changeAddress.address = 'ye5F5rfx44YqvqCpVvi1SfFS4dvqaqyuDr';
           }, function() {
             clients[0].getTxProposals({}, function(err, txps) {
               should.exist(err);
@@ -2446,7 +2446,7 @@ describe('client API', function() {
     });
 
     it('Should sign proposal with no change', function(done) {
-      var toAddress = 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5';
+      var toAddress = 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms';
       var opts = {
         outputs: [{
           amount: 4e8 - 100,
@@ -2478,7 +2478,7 @@ describe('client API', function() {
       });
     });
     it('Should sign proposal created with send max settings', function(done) {
-      var toAddress = 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5';
+      var toAddress = 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms';
       clients[0].getSendMaxInfo({
         feePerKb: 100e2,
         returnInputs: true
@@ -2560,7 +2560,7 @@ describe('client API', function() {
           var tx = txps[0];
           // From the hardcoded paypro request
           tx.outputs[0].amount.should.equal(404500);
-          tx.outputs[0].toAddress.should.equal('mjfjcbuYwBUdEyq2m7AezjCAR4etUBqyiE');
+          tx.outputs[0].toAddress.should.equal('yQUEAkYuXQv2xYsYUGpu4N5yfh8FBB92CK');
           tx.message.should.equal('Payment request for BitPay invoice CibEJJtG1t9H77KmM61E2t for merchant testCopay');
           tx.payProUrl.should.equal('dummy');
           done();
@@ -2589,7 +2589,7 @@ describe('client API', function() {
           var tx = txps[0];
           // From the hardcoded paypro request
           tx.outputs[0].amount.should.equal(404500);
-          tx.outputs[0].toAddress.should.equal('mjfjcbuYwBUdEyq2m7AezjCAR4etUBqyiE');
+          tx.outputs[0].toAddress.should.equal('yQUEAkYuXQv2xYsYUGpu4N5yfh8FBB92CK');
           tx.message.should.equal('Payment request for BitPay invoice CibEJJtG1t9H77KmM61E2t for merchant testCopay');
           tx.payProUrl.should.equal('dummy');
           done();
@@ -2849,7 +2849,7 @@ describe('client API', function() {
           should.not.exist(err);
           should.exist(x0.address);
           blockchainExplorerMock.setUtxo(x0, 1, 2);
-          var toAddress = 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5';
+          var toAddress = 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms';
           var opts = {
             outputs: [{
               amount: 40000,
@@ -2969,7 +2969,7 @@ describe('client API', function() {
           var opts = {
             outputs: [{
               amount: 10000000,
-              toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+              toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
               message: 'output 0',
             }],
             message: 'hello',
@@ -4415,7 +4415,7 @@ describe('client API', function() {
         done();
       });
       it('should be able to detect tampered change address when signing on airgapped client', function(done) {
-        bundle.txps[0].changeAddress.address = 'mqNkvNuhzZKeXYNRZ1bdj55smmW3acr6K7';
+        bundle.txps[0].changeAddress.address = 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms';
         (function() {
           airgapped.signTxProposalFromAirGapped(bundle.txps[0], bundle.encryptedPkr, bundle.m, bundle.n);
         }).should.throw('Fake transaction proposal');
@@ -4777,7 +4777,7 @@ describe('client API', function() {
         blockchainExplorerMock.setUtxo(x0, 1, 1);
         var opts = {
           amount: 10000000,
-          toAddress: 'n2TBMPzPECGUfcT2EByiTJ12TPZkhN2mN5',
+          toAddress: 'yfyzM58VsmjfbXtTzNrYH14TmJvY3Nn3Ms',
           message: 'hello 1-1',
         };
         helpers.createAndPublishTxProposal(c1, opts, function(err, txp) {
